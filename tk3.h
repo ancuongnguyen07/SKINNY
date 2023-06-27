@@ -9,17 +9,11 @@
  */
 typedef struct {
 /* TODO */
-    unsigned char status[48]; // 384 initial bits | 48 initial bytes
-    unsigned char* message;
-    unsigned int max_size_message;
-    unsigned int current_size_message;
-    unsigned int size_padded_message;
+    unsigned char state[48]; // 384 initial bits | 48 initial bytes
+    unsigned int num_xored_bytes;
 } context;
 
-void f_function(const unsigned char *messBlock, unsigned char *output);
-int modulo(int a, int b);
-void update_state(unsigned char *padded_mess, context *ctx);
-void pad10(unsigned char *padded_mess, context *ctx);
+void f_function(unsigned char *tk);
 void printBytes(unsigned char *bytes, int len);
 
 /**
